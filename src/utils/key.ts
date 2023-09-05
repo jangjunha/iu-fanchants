@@ -1,5 +1,4 @@
 import { disassembleHangul } from "@toss/hangul";
-import { useEffect, useState } from "react";
 
 export const convertCharToKeypad = (c: string): string => {
   if (c == "(함성)") {
@@ -88,25 +87,4 @@ export const convertKeyToKeypad = (key: string): string | undefined => {
     case "Enter":
       return "(함성)";
   }
-};
-
-export const usePressedKeys = (): string[] => {
-  const [keys, setKeys] = useState<string[]>([]);
-  useEffect(() => {
-    const handleKeydown = (ev: React.KeyboardEvent): void => {
-      const keypad = convertKeyToKeypad(ev.key);
-      setKeys((p) => [...p, keypad]);
-    };
-    const handleKeyup = (ev: React.KeyboardEvent): void => {
-      const keypad = convertKeyToKeypad(ev.key);
-      setKeys((p) => p.filter((k) => k !== keypad));
-    };
-    window.addEventListener("keydown", handleKeydown);
-    window.addEventListener("keyup", handleKeyup);
-    return () => {
-      window.removeEventListener("keydown", handleKeydown);
-      window.removeEventListener("keyup", handleKeyup);
-    };
-  }, []);
-  return keys;
 };

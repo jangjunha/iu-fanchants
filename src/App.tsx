@@ -121,14 +121,14 @@ const App = (): React.ReactElement => {
   );
 
   useEffect(() => {
-    const handleKeydown = (ev: React.KeyboardEvent): void => {
+    const handleKeydown = (ev: KeyboardEvent): void => {
       const keypad = convertKeyToKeypad(ev.key);
       if (keypad == null) {
         return;
       }
       handlePressKeypad(keypad);
     };
-    window.addEventListener("keydown", handleKeydown);
+    window.addEventListener("keydown", handleKeydown, false);
     return () => window.removeEventListener("keydown", handleKeydown);
   }, [handlePressKeypad]);
 
