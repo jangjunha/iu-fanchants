@@ -5,8 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    screens: {
+      "xs": "414px",
+    },
+    extend: {
+      colors: {
+        "uaena": "#E4E724",
+      },
+    }
   },
   plugins: [],
 }
-
