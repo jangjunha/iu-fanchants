@@ -36,8 +36,8 @@ const Play = ({ song }: { song: Song }): React.ReactElement => {
     () =>
       song.lines
         .flatMap((l) => l.fanchants)
-        .filter(([, t]) => t != null)
-        .map(([c, t]) => [convertCharToKeypad(c), t as number]),
+        .filter(([, , t]) => t != null)
+        .map(([, k, t]) => [convertCharToKeypad(k), t as number]),
     []
   );
 

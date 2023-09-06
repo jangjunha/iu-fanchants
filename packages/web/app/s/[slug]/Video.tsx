@@ -6,7 +6,7 @@ import React, { useEffect, useRef, useState } from "react";
 import YouTube from "react-youtube";
 
 const Fanchant_ = ({
-  fanchant: [char, t],
+  fanchant: [char, , t],
   time,
 }: {
   fanchant: Fanchant;
@@ -33,12 +33,18 @@ const Line_ = ({
   time: number;
 }) => {
   return (
-    <div className="flex flex-col items-start leading-5">
+    <div
+      className={classNames("flex flex-col items-start leading-5", {
+        "text-lg": fanchants.length < 25,
+        "text-base": fanchants.length >= 25 && fanchants.length < 36,
+        "text-xs": fanchants.length >= 36,
+      })}
+    >
       <p
-        className="min-h-[1.25em] text-slate-400"
+        className="min-h-[1.25rem] text-slate-400"
         dangerouslySetInnerHTML={{ __html: lyrics }}
       />
-      <p className="min-h-[1.25em]">
+      <p className="min-h-[1.25rem]">
         {fanchants.map((e, i) => (
           <Fanchant_ fanchant={e} time={time} key={i} />
         ))}
@@ -49,6 +55,7 @@ const Line_ = ({
 
 export interface VideoProps {
   song: Song;
+  controls?: boolean;
   subtitle?: boolean;
   onPlaying?(time: number): void;
   playerRef?: React.Ref<any>;
@@ -56,6 +63,7 @@ export interface VideoProps {
 
 const Video = ({
   song: { videoId, lines },
+  controls = false,
   subtitle = false,
   onPlaying,
 }: VideoProps): React.ReactElement => {
@@ -88,8 +96,8 @@ const Video = ({
           width: "100%",
           height: "100%",
           playerVars: {
-            controls: 0,
-            disablekb: 1,
+            controls: controls ? 1 : 0,
+            disablekb: controls ? 0 : 1,
             fs: 0,
             iv_load_policy: 3,
             rel: 0,
@@ -97,7 +105,7 @@ const Video = ({
         }}
       />
       {subtitle && (
-        <section className="text-lg xs:text-2xl p-4 flex flex-col items-center gap-4">
+        <section className="p-4 flex flex-col items-center gap-4">
           <Line_ line={line1} time={currentTime} />
           <Line_ line={line2} time={currentTime} />
         </section>

@@ -11,6 +11,8 @@ const isSkipChar = (ch: string): boolean => {
     case " ":
     case "?":
     case ".":
+    case "-":
+    case '"':
       return true;
   }
   return false;
@@ -35,7 +37,7 @@ function App() {
         const fanchant = draft[idx];
         const ci = fanchant.length;
         if (isSkipChar(line[ci])) {
-          draft[idx][ci] = [line[ci], null];
+          draft[idx][ci] = [line[ci], line[ci], null];
         }
       })
     );
@@ -180,7 +182,7 @@ function App() {
                             const curr = await player.getCurrentTime();
                             setFanchants(
                               produce((draft) => {
-                                draft[idx][ci] = [raw[ci], curr];
+                                draft[idx][ci] = [raw[ci], raw[ci], curr];
                               })
                             );
                             skipSpaces(idx);
@@ -189,7 +191,7 @@ function App() {
                             if (ci >= raw.length) return;
                             setFanchants(
                               produce((draft) => {
-                                draft[idx][ci] = [raw[ci], null];
+                                draft[idx][ci] = [raw[ci], raw[ci], null];
                               })
                             );
                             skipSpaces(idx);
@@ -213,11 +215,11 @@ function App() {
                             "bg-gray-100":
                               !isSkipChar(ch) &&
                               i < ci &&
-                              fanchant[i][1] == null,
+                              fanchant[i][2] == null,
                             "bg-green-100":
                               !isSkipChar(ch) &&
                               i < ci &&
-                              fanchant[i][1] != null,
+                              fanchant[i][2] != null,
                             "bg-violet-200": i === ci,
                             "bg-orange-100": !isSkipChar(ch) && i > ci,
                           })}

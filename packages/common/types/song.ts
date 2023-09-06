@@ -11,4 +11,4 @@ export interface Line {
   fanchants: Fanchant[];
 }
 
-export type Fanchant = [string, number | null];
+export type Fanchant = [string, string, number | null];

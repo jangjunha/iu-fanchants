@@ -7,7 +7,7 @@ const ViewPage = ({
 }: {
   params: { slug: string };
 }): React.ReactElement => {
-  const song = songs.filter((s) => s.slug === slug)[0] ?? songs[0];
+  const song = songs.filter((s) => s.slug === slug)[0];
 
   return <View song={song} />;
 };

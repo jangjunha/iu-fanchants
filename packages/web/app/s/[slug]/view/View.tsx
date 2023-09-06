@@ -17,16 +17,16 @@ const View = ({ song }: { song: Song }): React.ReactElement => {
     () =>
       song.lines
         .flatMap(({ fanchants }) => fanchants)
-        .flatMap(([ch, t]): [string, number][] => {
+        .flatMap(([, k, t]): [string, number][] => {
           if (t == null) return [];
-          return [[convertCharToKeypad(ch), t]];
+          return [[convertCharToKeypad(k), t]];
         }),
     []
   );
 
   const keypadColor = (keypad: string): string | undefined =>
     keys
-      .filter(([, t]) => current >= t && current < t + DISPLAY_TIME)
+      .filter(([, t]) => current >= t - 0.02 && current < t + DISPLAY_TIME)
       .some(([k]) => k === keypad)
       ? "bg-uaena"
       : undefined;
@@ -37,7 +37,7 @@ const View = ({ song }: { song: Song }): React.ReactElement => {
         <Link href="/">아이유 응원법</Link>{" "}
         <Link href={`/s/${song.slug}/`}>{song.name}</Link>
       </h1>
-      <Video song={song} onPlaying={setCurrent} subtitle />
+      <Video song={song} onPlaying={setCurrent} controls subtitle />
       <Keypad color={keypadColor} />
     </>
   );
