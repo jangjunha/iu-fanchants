@@ -8,10 +8,12 @@ import React, {
 } from "react";
 import YouTube from "react-youtube";
 
-import "./App.css";
 import type { Fanchant, Line } from "./types/song";
+import Keypad from "./components/Keypad";
 import blueming from "./songs/blueming";
-import { convertCharToKeypad, convertKeyToKeypad } from "./utils/key";
+import { convertCharToKeypad } from "./utils/key";
+
+import "./App.css";
 
 const JUDGEMENTS = [
   { name: "PERFECT", score: 100, threshold: 0.15 },
@@ -30,7 +32,7 @@ const scoreToJudgement = (score: number): string | undefined => {
   }
 };
 
-const Fanchant = ({
+const Fanchant_ = ({
   fanchant: [char, t],
   time,
 }: {
@@ -59,10 +61,13 @@ const Line_ = ({
 }) => {
   return (
     <div className="flex flex-col items-start leading-5">
-      <p className="min-h-[1.25em] text-slate-400">{lyrics}</p>
+      <p
+        className="min-h-[1.25em] text-slate-400"
+        dangerouslySetInnerHTML={{ __html: lyrics }}
+      />
       <p className="min-h-[1.25em]">
         {fanchants.map((e, i) => (
-          <Fanchant fanchant={e} time={time} key={i} />
+          <Fanchant_ fanchant={e} time={time} key={i} />
         ))}
       </p>
     </div>
@@ -70,11 +75,6 @@ const Line_ = ({
 };
 
 const SONG = blueming;
-const KEYPADS = [
-  ["ㅂ", "ㅈ", "ㄷ", "ㄱ", "ㅅ"],
-  ["ㅁ", "ㄴ", "ㅇ", "ㄹ", "ㅎ"],
-  ["ㅋ", "ㅌ", "ㅊ", "ㅍ", "(함성)"],
-];
 
 const App = (): React.ReactElement => {
   const { id } = SONG;
@@ -119,18 +119,6 @@ const App = (): React.ReactElement => {
     },
     [timeline, scores]
   );
-
-  useEffect(() => {
-    const handleKeydown = (ev: KeyboardEvent): void => {
-      const keypad = convertKeyToKeypad(ev.key);
-      if (keypad == null) {
-        return;
-      }
-      handlePressKeypad(keypad);
-    };
-    window.addEventListener("keydown", handleKeydown, false);
-    return () => window.removeEventListener("keydown", handleKeydown);
-  }, [handlePressKeypad]);
 
   useEffect(() => {
     const timerId = setInterval(() => {
@@ -214,31 +202,7 @@ const App = (): React.ReactElement => {
         </div>
         <div>{scores.reduce((acc, s) => acc + s.score, 0)} </div>
       </section>
-      <section className="select-none flex flex-col [&>div]:flex [&>div]:justify-stretch">
-        {KEYPADS.map((row, i) => (
-          <div key={i}>
-            {row.map((keypad) => (
-              <button
-                key={keypad}
-                className={classNames(
-                  "flex-1",
-                  "flex",
-                  "items-center",
-                  "justify-center",
-                  "h-12",
-                  "border",
-                  "border-slate-700",
-                  "m-1",
-                  keypadColor(keypad)
-                )}
-                onClick={() => handlePressKeypad(keypad)}
-              >
-                {keypad}
-              </button>
-            ))}
-          </div>
-        ))}
-      </section>
+      <Keypad color={keypadColor} onKeydown={handlePressKeypad} />
       {/* <section className="font-mono bg-slate-800 p-4">
         <p className="font-mono">{time.toFixed(2)}</p>
         <input
