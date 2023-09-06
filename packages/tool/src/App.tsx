@@ -233,7 +233,9 @@ function App() {
             <button
               onClick={() => {
                 const song: Song = {
-                  id,
+                  slug: "",
+                  name: "",
+                  videoId: id,
                   lines: fanchants.map((f, i) => {
                     const [lyrics] = lines[i];
                     let time = 0;

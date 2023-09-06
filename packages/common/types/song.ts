@@ -1,5 +1,7 @@
 export interface Song {
-  id: string;
+  slug: string;
+  videoId: string;
+  name: string;
   lines: Line[];
 }
 
