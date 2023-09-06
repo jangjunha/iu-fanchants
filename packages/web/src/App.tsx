@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { Fanchant, Line } from "iu-fanchants-common/types/song";
 import React, {
   useCallback,
   useEffect,
@@ -8,7 +9,6 @@ import React, {
 } from "react";
 import YouTube from "react-youtube";
 
-import type { Fanchant, Line } from "./types/song";
 import Keypad from "./components/Keypad";
 import blueming from "./songs/blueming";
 import { convertCharToKeypad } from "./utils/key";

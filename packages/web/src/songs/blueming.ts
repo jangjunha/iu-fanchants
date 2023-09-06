@@ -1,4 +1,4 @@
-import { Song } from "../types/song";
+import { Song } from "iu-fanchants-common/types/song";
 
 const blueming: Song = {
   id: "o_nxIQTM_B0",

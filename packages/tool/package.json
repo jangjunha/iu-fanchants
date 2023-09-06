@@ -1,5 +1,5 @@
 {
-  "name": "iu-fanchants-web",
+  "name": "iu-fanchants-tool",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,9 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@toss/hangul": "^1.5.0",
     "classnames": "^2.3.2",
-    "firebase": "^10.3.1",
+    "immer": "^10.0.2",
     "iu-fanchants-common": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -30,7 +29,7 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "postcss": "^8.4.29",
     "tailwindcss": "^3.3.3",
-    "typescript": "~5",
+    "typescript": "^5.0.2",
     "vite": "^4.4.5"
   }
 }
