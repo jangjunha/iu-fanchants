@@ -1,6 +1,6 @@
 import { Song } from "iu-fanchants-common/types/song";
 
-const you_and_i: Song = {
+const youAndI: Song = {
   slug: "you-and-i",
   videoId: "NJR8Inf77Ac",
   name: "너랑 나",
@@ -699,4 +699,4 @@ const you_and_i: Song = {
     },
   ],
 };
-export default you_and_i;
+export default youAndI;
