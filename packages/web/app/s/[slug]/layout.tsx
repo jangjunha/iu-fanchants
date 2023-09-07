@@ -18,7 +18,9 @@ const SongLayout = ({
         <Link href="/" className="mr-2 px-2">
           <Image src={logo} alt="아이크" className="w-4 pb-1 inline" />
         </Link>{" "}
-        <Link href={`/s/${slug}/`}>{song.name}</Link>
+        <Link href={`/s/${slug}/`} id="song-name">
+          {song.name}
+        </Link>
       </header>
       {children}
     </>
