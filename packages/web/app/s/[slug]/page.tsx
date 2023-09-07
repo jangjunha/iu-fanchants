@@ -17,10 +17,10 @@ const SongPage = ({
         src={`https://i3.ytimg.com/vi/${song.videoId}/maxresdefault.jpg
 `}
       />
-      <section className="flex flex-col gap-y-2 text-center text-lg">
+      <section className="flex flex-col gap-y-2 mt-8 text-center">
         <Link
           href={`/s/${slug}/view/`}
-          className="bg-yellow-600 hover:bg-yellow-500 border border-yellow-500 rounded-md py-2"
+          className="bg-neutral-100 hover:bg-neutral-200 border border-neutral-200 text-black rounded-md py-2"
         >
           미리보기
         </Link>
