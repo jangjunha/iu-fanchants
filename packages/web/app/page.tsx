@@ -8,9 +8,9 @@ import logo from "@/public/logo-outline.svg";
 export default function Home() {
   return (
     <>
-      <header className="flex flex-col items-center my-8 text-3xl font-bold">
+      <header className="flex flex-col items-center my-8 text-4xl font-bold">
         <Image src={logo} alt="아이크" className="w-16 mb-4" />
-        <h1>아이유 응원법 초성 리듬게임</h1>
+        <h1 className="font-hand">아이유 응원법 초성 리듬게임</h1>
       </header>
       <section>
         <ul

@@ -100,7 +100,7 @@ const Video = ({
           height: "100%",
           playerVars: {
             autoplay: 1,
-            // controls: controls ? 1 : 0,
+            controls: controls ? 1 : 0,
             disablekb: controls ? 0 : 1,
             fs: 0,
             iv_load_policy: 3,
