@@ -58,6 +58,7 @@ export interface VideoProps {
   controls?: boolean;
   subtitle?: boolean;
   onPlaying?(time: number): void;
+  onEnd?(): void;
   className?: string;
 }
 
@@ -66,6 +67,7 @@ const Video = ({
   controls = false,
   subtitle = false,
   onPlaying,
+  onEnd,
   className,
 }: VideoProps): React.ReactElement => {
   const player = useRef<YouTube>(null);
@@ -98,13 +100,14 @@ const Video = ({
           height: "100%",
           playerVars: {
             autoplay: 1,
-            controls: controls ? 1 : 0,
+            // controls: controls ? 1 : 0,
             disablekb: controls ? 0 : 1,
             fs: 0,
             iv_load_policy: 3,
             rel: 0,
           },
         }}
+        onEnd={onEnd}
       />
       {subtitle && (
         <section className="p-4 flex flex-col items-center gap-4">

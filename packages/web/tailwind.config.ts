@@ -17,6 +17,9 @@ const config: Config = {
       colors: {
         uaena: "#E4E724",
       },
+      screens: {
+        tall: { raw: "(min-height: 667px)" },
+      },
     },
   },
   plugins: [],
