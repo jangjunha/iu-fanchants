@@ -209,7 +209,7 @@ const Play = ({ song }: { song: Song }): React.ReactElement => {
       time,
     ])[0];
   return isEnd ? (
-    <div className="flex flex-col items-center py-16">
+    <div id="result" className="flex flex-col items-center py-16">
       <Result scores={scores} total={totalScore} max={maxScore} />
     </div>
   ) : (
