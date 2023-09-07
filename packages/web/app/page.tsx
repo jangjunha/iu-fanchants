@@ -13,6 +13,20 @@ export default function Home() {
         <Image src={logo} alt="아이크" className="w-16 mb-4" />
         <h1 className="font-hand">아이유 응원법 초성 리듬게임</h1>
       </header>
+      <section className="mx-4 mb-8 px-4 py-3 bg-neutral-800 rounded-md [&_p]:mt-2 text-sm">
+        <h2 className="font-bold">이용 방법</h2>
+        <p>
+          노래를 선택하고 <span className="text-uaena">미리보기</span>를
+          눌러주세요. 미리보기 모드에서는 가사, 응원법과 함께 눌러야 할{" "}
+          <span className="text-uaena">초성 버튼에 불이 들어와요</span>.
+        </p>
+        <p>
+          미리보기 모드에서 응원법을 숙지했으면{" "}
+          <span className="text-uaena">플레이</span> 버튼을 눌러 게임을
+          시작하세요. 게임 화면에는 응원법이 나오지 않으니 응원법을 외워서
+          버튼을 눌러야해요.
+        </p>
+      </section>
       <section className="px-4">
         {songs
           .reduce<Song[][]>((res, song) => {
