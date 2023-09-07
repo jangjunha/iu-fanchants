@@ -20,8 +20,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className={classNames("bg-black text-white", inter.className)}>
-        <main className="container max-w-screen-md mx-auto">{children}</main>
+      <body
+        className={classNames(
+          "bg-neutral-900 text-white flex flex-col items-center h-full",
+          inter.className
+        )}
+      >
+        <main className="container max-w-screen-md flex-1">{children}</main>
       </body>
     </html>
   );

@@ -10,20 +10,24 @@ const SongPage = ({
   params: { slug: string };
 }): React.ReactElement => {
   const song = songs.filter((s) => s.slug === slug)[0];
-
-  const buttonCls =
-    "bg-violet-400/40 hover:bg-violet-600/40 border border-violet-400/40 rounded-md text-center py-2";
   return (
     <>
-      <h1>
-        <Link href="/">아이유 응원법</Link>{" "}
-        <Link href={`/s/${slug}/`}>{song.name}</Link>
-      </h1>
-      <section className="flex flex-col gap-y-2">
-        <Link href={`/s/${slug}/view/`} className={buttonCls}>
+      <img
+        className="my-4"
+        src={`https://i3.ytimg.com/vi/${song.videoId}/maxresdefault.jpg
+`}
+      />
+      <section className="flex flex-col gap-y-2 text-center text-lg">
+        <Link
+          href={`/s/${slug}/view/`}
+          className="bg-yellow-600 hover:bg-yellow-500 border border-yellow-500 rounded-md py-2"
+        >
           미리보기
         </Link>
-        <Link href={`/s/${slug}/play/`} className={buttonCls}>
+        <Link
+          href={`/s/${slug}/play/`}
+          className="bg-violet-600 hover:bg-violet-500 border border-violet-500 rounded-md py-2"
+        >
           플레이
         </Link>
       </section>

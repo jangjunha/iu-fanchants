@@ -34,14 +34,14 @@ const Line_ = ({
 }) => {
   return (
     <div
-      className={classNames("flex flex-col items-start leading-5", {
+      className={classNames("flex flex-col items-start leading-5 font-hand", {
         "text-lg": fanchants.length < 25,
         "text-base": fanchants.length >= 25 && fanchants.length < 36,
         "text-xs": fanchants.length >= 36,
       })}
     >
       <p
-        className="min-h-[1.25rem] text-slate-400"
+        className="min-h-[1.25rem] text-neutral-400"
         dangerouslySetInnerHTML={{ __html: lyrics }}
       />
       <p className="min-h-[1.25rem]">
@@ -96,6 +96,7 @@ const Video = ({
           width: "100%",
           height: "100%",
           playerVars: {
+            autoplay: 1,
             controls: controls ? 1 : 0,
             disablekb: controls ? 0 : 1,
             fs: 0,

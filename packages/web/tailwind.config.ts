@@ -10,6 +10,9 @@ const config: Config = {
     screens: {
       xs: "414px",
     },
+    fontFamily: {
+      hand: ["omyu_pretty"],
+    },
     extend: {
       colors: {
         uaena: "#E4E724",

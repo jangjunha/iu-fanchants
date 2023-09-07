@@ -1713,6 +1713,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@heroicons/react", [\
+        ["npm:2.0.18", {\
+          "packageLocation": "./.yarn/cache/@heroicons-react-npm-2.0.18-3febb62534-597e866881.zip/node_modules/@heroicons/react/",\
+          "packageDependencies": [\
+            ["@heroicons/react", "npm:2.0.18"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:2956b9757a7759da4c5bdff01d390ad426e5ac9f0af64adde8ca4bc17c5ef838dbf2f5252773176dcd7c47b341223917e0659baada45b43bec7f22025463a244#npm:2.0.18", {\
+          "packageLocation": "./.yarn/__virtual__/@heroicons-react-virtual-8843f58085/0/cache/@heroicons-react-npm-2.0.18-3febb62534-597e866881.zip/node_modules/@heroicons/react/",\
+          "packageDependencies": [\
+            ["@heroicons/react", "virtual:2956b9757a7759da4c5bdff01d390ad426e5ac9f0af64adde8ca4bc17c5ef838dbf2f5252773176dcd7c47b341223917e0659baada45b43bec7f22025463a244#npm:2.0.18"],\
+            ["@types/react", "npm:18.2.21"],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@humanwhocodes/config-array", [\
         ["npm:0.11.11", {\
           "packageLocation": "./.yarn/cache/@humanwhocodes-config-array-npm-0.11.11-e3582554ee-db84507375.zip/node_modules/@humanwhocodes/config-array/",\
@@ -5029,6 +5051,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/web/",\
           "packageDependencies": [\
             ["iu-fanchants-web", "workspace:packages/web"],\
+            ["@heroicons/react", "virtual:2956b9757a7759da4c5bdff01d390ad426e5ac9f0af64adde8ca4bc17c5ef838dbf2f5252773176dcd7c47b341223917e0659baada45b43bec7f22025463a244#npm:2.0.18"],\
             ["@toss/hangul", "npm:1.5.0"],\
             ["@types/node", "npm:20.5.9"],\
             ["@types/react", "npm:18.2.21"],\

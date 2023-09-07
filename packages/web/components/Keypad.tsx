@@ -43,9 +43,10 @@ const Keypad = ({ color, onKeydown }: KeypadProps): React.ReactElement => {
                 "justify-center",
                 "h-12",
                 "border",
-                "border-slate-700",
+                "border-neutral-700",
+                "rounded",
                 "m-1",
-                color?.(keypad)
+                color?.(keypad) ?? "bg-neutral-800"
               )}
               onClick={() => onKeydown?.(keypad)}
             >
