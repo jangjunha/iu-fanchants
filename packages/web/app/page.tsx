@@ -28,7 +28,7 @@ export default function Home() {
                     {Array(difficulty)
                       .fill(null)
                       .map(() => (
-                        <Image src={ike} alt="아이크" className="w-4 inline" />
+                        <Image src={ike} alt="아이크" className="w-6 inline" />
                       ))}
                   </h3>
                 }

@@ -4,7 +4,7 @@ const youAndI: Song = {
   slug: "you-and-i",
   videoId: "NJR8Inf77Ac",
   name: "너랑 나",
-  difficulty: 3,
+  difficulty: 1,
   lines: [
     {
       time: 0,
