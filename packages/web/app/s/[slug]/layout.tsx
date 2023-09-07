@@ -15,7 +15,7 @@ const SongLayout = ({
   return (
     <>
       <header className="flex items-center mt-4">
-        <Link href="/" className="mr-2">
+        <Link href="/" className="mr-2 px-2">
           <Image src={logo} alt="아이크" className="w-4 pb-1 inline" />
         </Link>{" "}
         <Link href={`/s/${slug}/`}>{song.name}</Link>

@@ -15,7 +15,7 @@ export default function Home() {
       <section>
         <ul
           role="list"
-          className="bg-white text-black border mx-4 divide-y rounded-md shadow shadow-neutral-600"
+          className="bg-white text-black border mx-4 mb-8 divide-y rounded-md shadow shadow-neutral-600"
         >
           {songs.map((song) => (
             <li key={song.slug} className="flex hover:bg-violet-200">
