@@ -50,9 +50,6 @@ export default function Home() {
           ))}
         </ul>
       </section>
-      <footer>
-        <Link href="/about/">about</Link>
-      </footer>
     </>
   );
 }

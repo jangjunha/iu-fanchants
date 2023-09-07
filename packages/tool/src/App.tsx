@@ -232,6 +232,7 @@ function App() {
                 );
               })}
             </ul>
+            <button onClick={() => setStage("line")}>이전</button>
             <button
               onClick={() => {
                 const song: Song = {
