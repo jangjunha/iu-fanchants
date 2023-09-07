@@ -2,6 +2,7 @@ export interface Song {
   slug: string;
   videoId: string;
   name: string;
+  difficulty: number;
   lines: Line[];
 }
 

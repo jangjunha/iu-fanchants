@@ -238,6 +238,7 @@ function App() {
                 const song: Song = {
                   slug: "",
                   name: "",
+                  difficulty: 0,
                   videoId: id,
                   lines: fanchants.map((f, i) => {
                     const [lyrics] = lines[i];

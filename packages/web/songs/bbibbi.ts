@@ -4,6 +4,7 @@ const bbibbi: Song = {
   slug: "bbibbi",
   name: "삐삐",
   videoId: "nM0xDI5R50E",
+  difficulty: 5,
   lines: [
     { time: 0, lyrics: "Hi there 인사해 호들갑 없이", fanchants: [] },
     { time: 0, lyrics: "시작해요 서론 없이", fanchants: [] },
