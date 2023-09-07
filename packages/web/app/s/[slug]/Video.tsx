@@ -58,7 +58,7 @@ export interface VideoProps {
   controls?: boolean;
   subtitle?: boolean;
   onPlaying?(time: number): void;
-  playerRef?: React.Ref<any>;
+  className?: string;
 }
 
 const Video = ({
@@ -66,6 +66,7 @@ const Video = ({
   controls = false,
   subtitle = false,
   onPlaying,
+  className,
 }: VideoProps): React.ReactElement => {
   const player = useRef<YouTube>(null);
   const [currentTime, setCurrentTime] = useState(0);
@@ -87,7 +88,7 @@ const Video = ({
   const [line2] = targets.filter((_, i) => i % 2 === 1).slice(-1);
 
   return (
-    <>
+    <div className={classNames("flex flex-col justify-evenly", className)}>
       <YouTube
         videoId={videoId}
         ref={player}
@@ -111,7 +112,7 @@ const Video = ({
           <Line_ line={line2} time={currentTime} />
         </section>
       )}
-    </>
+    </div>
   );
 };
 export default Video;

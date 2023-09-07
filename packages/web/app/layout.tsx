@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="ko">
       <body
         className={classNames(
-          "bg-neutral-900 text-white flex flex-col items-center h-full",
+          "bg-neutral-900 text-white flex flex-col items-center h-screen",
           inter.className
         )}
       >
@@ -42,7 +42,9 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
-        <main className="container max-w-screen-md flex-1">{children}</main>
+        <main className="container max-w-screen-md flex-1 flex flex-col">
+          {children}
+        </main>
       </body>
     </html>
   );

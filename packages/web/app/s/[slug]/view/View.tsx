@@ -31,10 +31,16 @@ const View = ({ song }: { song: Song }): React.ReactElement => {
       : undefined;
 
   return (
-    <>
-      <Video song={song} onPlaying={setCurrent} controls subtitle />
+    <div className="flex-1 flex flex-col-reverse justify-between py-4">
       <Keypad color={keypadColor} />
-    </>
+      <Video
+        song={song}
+        onPlaying={setCurrent}
+        className="flex-1"
+        controls
+        subtitle
+      />
+    </div>
   );
 };
 export default View;

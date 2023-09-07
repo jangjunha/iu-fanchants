@@ -94,20 +94,27 @@ const Play = ({ song }: { song: Song }): React.ReactElement => {
   };
 
   return (
-    <>
-      <Video song={song} onPlaying={setCurrent} />
-      <section className="text-center flex justify-between mx-1">
-        <div>
-          {
-            scores
-              .filter((s) => current < s.time + DISPLAY_TIME)
-              .map(({ score }) => scoreToJudgement(score))[0]
-          }
-        </div>
-        <div>{scores.reduce((acc, s) => acc + s.score, 0)} </div>
-      </section>
-      <Keypad color={keypadColor} onKeydown={handlePressKeypad} />
-    </>
+    <div className="flex-1 flex flex-col-reverse justify-between py-4">
+      <div className="flex flex-col">
+        <section className="text-center flex justify-between mx-1">
+          <div></div>
+          <div className="font-hand">
+            {
+              scores
+                .filter((s) => current < s.time + DISPLAY_TIME)
+                .map(({ score }) => scoreToJudgement(score))[0]
+            }
+          </div>
+          <div className="font-hand">
+            {scores.reduce((acc, s) => acc + s.score, 0)}{" "}
+          </div>
+        </section>
+        <Keypad color={keypadColor} onKeydown={handlePressKeypad} />
+      </div>
+      <div className="flex-1 flex flex-col justify-evenly">
+        <Video song={song} onPlaying={setCurrent} />
+      </div>
+    </div>
   );
 };
 export default Play;
