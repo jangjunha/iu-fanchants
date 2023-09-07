@@ -72,6 +72,9 @@ export default function Home() {
             </div>
           ))}
       </section>
+      <footer className="mt-16 mb-4 flex flex-col items-center text-neutral-400">
+        <Link href="/about/">정보</Link>
+      </footer>
     </>
   );
 }
