@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import logo from "@/public/logo-outline.svg";
+import logo from "@/public/logo-colored.svg";
 import songs from "@/songs";
 
 const SongLayout = ({

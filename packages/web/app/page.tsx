@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 import songs from "@/songs";
-import logo from "@/public/logo-outline.svg";
-import ike from "@/public/logo.svg";
+import logo from "@/public/logo.svg";
+import ike from "@/public/logo-colored.svg";
 import { Song } from "iu-fanchants-common/types/song";
 
 export default function Home() {
