@@ -1,10 +1,32 @@
+import { Song } from "iu-fanchants-common/types/song";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 import songs from "@/songs";
 import logo from "@/public/logo.svg";
 import ike from "@/public/logo-colored.svg";
-import { Song } from "iu-fanchants-common/types/song";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://iu-fanchants.web.app/"),
+  title: `아이유 응원법`,
+  description: `아이유 응원법 초성 리듬게임!`,
+  applicationName: "아이유 응원법 초성 리듬게임",
+  openGraph: {
+    images: ["/logo.svg"],
+  },
+  keywords: [
+    "아이유 응원법",
+    "IU Fanchants",
+    "아이유 응원법 리듬게임",
+    "초성 리듬게임",
+  ],
+  themeColor: "#E4E724",
+  alternates: {
+    canonical: `https://iu-fanchants.web.app/`,
+  },
+  appleWebApp: true,
+};
 
 export default function Home() {
   return (
