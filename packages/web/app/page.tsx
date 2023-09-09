@@ -35,7 +35,7 @@ export default function Home() {
             return res;
           }, [])
           .map((items, difficulty) => (
-            <div>
+            <div key={difficulty}>
               <header className="text-neutral-300 mb-2">
                 {
                   <h3>
