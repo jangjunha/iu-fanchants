@@ -23,9 +23,13 @@ export default function RootLayout({
     <html lang="ko">
       <body
         className={classNames(
-          "bg-neutral-900 text-white flex flex-col items-center h-screen",
+          "bg-no-repeat bg-fixed from-violet-600 from-[14rem] to-[14rem] to-neutral-900 text-white flex flex-col items-center h-screen",
           inter.className
         )}
+        style={{
+          backgroundImage:
+            "linear-gradient(0.498turn, var(--tw-gradient-stops))",
+        }}
       >
         <Script>
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
