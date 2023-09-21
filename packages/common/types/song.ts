@@ -1,6 +1,7 @@
 export interface Song {
   slug: string;
   videoId: string;
+  thumbnail?: string;
   skipStart?: number;
   name: string;
   difficulty: number;

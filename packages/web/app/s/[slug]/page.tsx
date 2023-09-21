@@ -43,7 +43,10 @@ const SongPage = ({ params: { slug } }: Props): React.ReactElement => {
     <>
       <img
         className="my-4"
-        src={`https://i3.ytimg.com/vi/${song.videoId}/maxresdefault.jpg`}
+        src={
+          song.thumbnail ??
+          `https://i3.ytimg.com/vi/${song.videoId}/maxresdefault.jpg`
+        }
       />
       <section className="flex flex-col gap-y-2 mt-8 text-center">
         <Link

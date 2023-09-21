@@ -82,8 +82,10 @@ export default function Home() {
                       <div className="flex items-center min-w-0 gap-x-4">
                         <img
                           className="h-12 w-12 flex-none rounded-full bg-gray-50 object-cover border"
-                          src={`https://i3.ytimg.com/vi/${song.videoId}/maxresdefault.jpg
-`}
+                          src={
+                            song.thumbnail ??
+                            `https://i3.ytimg.com/vi/${song.videoId}/maxresdefault.jpg`
+                          }
                         />
                         <div className="min-w-0 flex-auto">
                           <p className="font-semibold leading-6">{song.name}</p>
