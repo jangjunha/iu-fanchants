@@ -45,7 +45,7 @@ export default function Home() {
         <p>
           미리보기 모드에서 응원법을 숙지했으면{" "}
           <span className="text-uaena">플레이</span> 버튼을 눌러 게임을
-          시작하세요. 게임 화면에는 응원법이 나오지 않으니 응원법을 외워서
+          시작해주세요. 게임 화면에는 자막이 나오지 않으니 응원법을 외워서
           버튼을 눌러야해요.
         </p>
       </section>

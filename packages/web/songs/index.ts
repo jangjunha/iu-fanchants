@@ -4,5 +4,14 @@ import dlwlrma from "./dlwlrma";
 import everyEndOfTheDay from "./every-end-of-the-day";
 import youAndI from "./you-and-i";
 import youKnow from "./you-know";
+import lilac from "./lilac";
 
-export default [blueming, bbibbi, dlwlrma, everyEndOfTheDay, youAndI, youKnow];
+export default [
+  lilac,
+  blueming,
+  bbibbi,
+  dlwlrma,
+  everyEndOfTheDay,
+  youAndI,
+  youKnow,
+];
