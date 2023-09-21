@@ -63,7 +63,7 @@ export interface VideoProps {
 }
 
 const Video = ({
-  song: { videoId, lines },
+  song: { videoId, lines, skipStart },
   controls = false,
   subtitle = false,
   onPlaying,
@@ -105,6 +105,7 @@ const Video = ({
             fs: 0,
             iv_load_policy: 3,
             rel: 0,
+            start: skipStart,
           },
         }}
         onEnd={onEnd}
