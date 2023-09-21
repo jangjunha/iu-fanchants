@@ -72,7 +72,7 @@ function App() {
                     .map((line) =>
                       line
                         .replace(/\d{2}\:\d{2}/g, "")
-                        .replace(/[()!.]/g, "")
+                        // .replace(/[()!.]/g, "")
                         .trim()
                     )
                     .filter((line) => line)
