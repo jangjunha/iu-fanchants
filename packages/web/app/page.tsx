@@ -31,11 +31,11 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <header className="flex flex-col items-center my-8 text-4xl font-bold">
+      <header className="flex flex-col items-center my-8 text-4xl font-bold drop-shadow">
         <Image src={logo} alt="아이크" className="w-16 mb-4" />
         <h1 className="font-hand">아이유 응원법 초성 리듬게임</h1>
       </header>
-      <section className="mx-4 mb-8 px-4 py-3 bg-neutral-800 rounded-md [&_p]:mt-2 text-sm">
+      <section className="mx-4 mb-8 px-4 py-3 bg-neutral-800 rounded-md [&_p]:mt-2 text-sm drop-shadow">
         <h2 className="font-bold">이용 방법</h2>
         <p>
           노래를 선택하고 <span className="text-uaena">미리보기</span>를
