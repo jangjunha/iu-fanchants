@@ -3,7 +3,7 @@ import { Song } from "iu-fanchants-common/types/song";
 const theRedShoes: Song = {
   slug: "the-red-shoes",
   name: "분홍신",
-  difficulty: 1,
+  difficulty: 3,
   videoId: "xdjEAMz3eWY",
   thumbnail: "https://i3.ytimg.com/vi/xdjEAMz3eWY/hqdefault.jpg",
   lines: [

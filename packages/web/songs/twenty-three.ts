@@ -3,7 +3,7 @@ import { Song } from "iu-fanchants-common/types/song";
 const twentyThree: Song = {
   slug: "twenty-three",
   name: "스물셋",
-  difficulty: 1,
+  difficulty: 2,
   videoId: "aZGaSrI0RoY",
   skipStart: 37,
   lines: [

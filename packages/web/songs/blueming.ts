@@ -4,7 +4,7 @@ const blueming: Song = {
   slug: "blueming",
   videoId: "o_nxIQTM_B0",
   name: "Blueming",
-  difficulty: 2,
+  difficulty: 3,
   lines: [
     {
       time: 0,
