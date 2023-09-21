@@ -8,6 +8,7 @@ import lilac from "./lilac";
 import twentyThree from "./twenty-three";
 import theRedShoes from "./the-red-shoes";
 import loveAttack from "./love-attack";
+import boo from "./boo";
 
 export default [
   lilac,
@@ -18,6 +19,7 @@ export default [
   theRedShoes,
   everyEndOfTheDay,
   youAndI,
-  youKnow,
   loveAttack,
+  youKnow,
+  boo,
 ];
