@@ -6,6 +6,7 @@ import youAndI from "./you-and-i";
 import youKnow from "./you-know";
 import lilac from "./lilac";
 import twentyThree from "./twenty-three";
+import theRedShoes from "./the-red-shoes";
 
 export default [
   lilac,
@@ -13,6 +14,7 @@ export default [
   bbibbi,
   dlwlrma,
   twentyThree,
+  theRedShoes,
   everyEndOfTheDay,
   youAndI,
   youKnow,
