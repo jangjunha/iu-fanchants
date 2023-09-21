@@ -3,6 +3,7 @@ import { Song } from "iu-fanchants-common/types/song";
 const blueming: Song = {
   slug: "blueming",
   videoId: "o_nxIQTM_B0",
+  end: 217,
   name: "Blueming",
   difficulty: 3,
   lines: [

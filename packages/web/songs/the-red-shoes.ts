@@ -6,6 +6,7 @@ const theRedShoes: Song = {
   difficulty: 3,
   videoId: "xdjEAMz3eWY",
   thumbnail: "https://i3.ytimg.com/vi/xdjEAMz3eWY/hqdefault.jpg",
+  end: 246,
   lines: [
     {
       time: 0,

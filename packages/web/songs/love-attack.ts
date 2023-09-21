@@ -5,6 +5,7 @@ const loveAttack: Song = {
   name: "러브어택",
   difficulty: 1,
   videoId: "sCqP0YmT5H8",
+  end: 190,
   lines: [
     {
       time: 0,

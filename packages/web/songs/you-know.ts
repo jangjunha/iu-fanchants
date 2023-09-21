@@ -4,6 +4,7 @@ const youKnow: Song = {
   slug: "you-know",
   name: "있잖아",
   videoId: "NMY_G6nra2U",
+  end: 155,
   difficulty: 1,
   lines: [
     { time: 0, lyrics: "One Two Three Go", fanchants: [] },

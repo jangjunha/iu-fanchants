@@ -12,12 +12,20 @@ const KEYPADS = [
 ];
 
 export interface KeypadProps {
+  disabled?: boolean;
   color?(key: string): string | undefined;
   onKeydown?(key: string): void;
 }
 
-const Keypad = ({ color, onKeydown }: KeypadProps): React.ReactElement => {
+const Keypad = ({
+  disabled = false,
+  color,
+  onKeydown,
+}: KeypadProps): React.ReactElement => {
   useEffect(() => {
+    if (disabled) {
+      return;
+    }
     const handleKeydown = (ev: KeyboardEvent): void => {
       const keypad = convertKeyToKeypad(ev.key);
       if (keypad == null) {
@@ -27,7 +35,7 @@ const Keypad = ({ color, onKeydown }: KeypadProps): React.ReactElement => {
     };
     window.addEventListener("keydown", handleKeydown, false);
     return () => window.removeEventListener("keydown", handleKeydown);
-  }, [onKeydown]);
+  }, [disabled, onKeydown]);
 
   return (
     <section className="select-none flex flex-col">
@@ -46,9 +54,14 @@ const Keypad = ({ color, onKeydown }: KeypadProps): React.ReactElement => {
                 "border-neutral-700",
                 "rounded",
                 "m-1",
-                color?.(keypad) ?? "bg-neutral-800"
+                color?.(keypad) ?? "bg-neutral-800",
+                { "text-neutral-600": disabled }
               )}
-              onClick={() => onKeydown?.(keypad)}
+              onClick={() => {
+                if (!disabled) {
+                  onKeydown?.(keypad);
+                }
+              }}
             >
               {keypad}
             </button>

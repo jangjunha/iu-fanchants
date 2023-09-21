@@ -195,6 +195,7 @@ const Play = ({ song }: { song: Song }): React.ReactElement => {
       }
     }
   };
+  const isSongEnd = current > song.end;
 
   const maxScore = useMemo(
     () => timeline.length * JUDGEMENTS[0].score,
@@ -215,7 +216,23 @@ const Play = ({ song }: { song: Song }): React.ReactElement => {
   ) : (
     <div className="flex-1 flex flex-col-reverse justify-between py-4">
       <div className="flex flex-col">
-        <Keypad color={keypadColor} onKeydown={handlePressKeypad} />
+        {!isSongEnd && (
+          <Keypad
+            disabled={song.end != null && current > song.end}
+            color={keypadColor}
+            onKeydown={handlePressKeypad}
+          />
+        )}
+        {isSongEnd && (
+          <div className="flex flex-col gap-y-2 min-h-[10.5rem] text-center">
+            <button
+              className="bg-neutral-100 hover:bg-neutral-200 border border-neutral-200 text-black rounded-md py-2"
+              onClick={() => setEnd(true)}
+            >
+              결과 보기
+            </button>
+          </div>
+        )}
       </div>
       <div className="flex-1 flex flex-col justify-evenly">
         <Video song={song} onPlaying={setCurrent} onEnd={handleEnd} />

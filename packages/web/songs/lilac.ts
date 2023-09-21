@@ -5,6 +5,7 @@ const lilac: Song = {
   name: "라일락",
   difficulty: 2,
   videoId: "nvJeJSrghOI",
+  end: 218,
   lines: [
     {
       time: 0,

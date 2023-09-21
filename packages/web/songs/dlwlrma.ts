@@ -4,6 +4,7 @@ const dlwlrma: Song = {
   slug: "dlwlrma",
   name: "이 지금",
   videoId: "Xswtv6Lq41w",
+  end: 179,
   difficulty: 1,
   lines: [
     {

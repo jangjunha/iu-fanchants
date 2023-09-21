@@ -6,6 +6,7 @@ const boo: Song = {
   difficulty: 2,
   videoId: "g3TP6XZ1Baw",
   thumbnail: "https://i3.ytimg.com/vi/g3TP6XZ1Baw/hqdefault.jpg",
+  end: 203,
   lines: [
     {
       time: 0,

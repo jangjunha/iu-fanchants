@@ -5,6 +5,7 @@ const twentyThree: Song = {
   name: "스물셋",
   difficulty: 2,
   videoId: "aZGaSrI0RoY",
+  end: 223,
   skipStart: 37,
   lines: [
     {

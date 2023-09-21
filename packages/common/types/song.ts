@@ -3,6 +3,7 @@ export interface Song {
   videoId: string;
   thumbnail?: string;
   skipStart?: number;
+  end: number;
   name: string;
   difficulty: number;
   lines: Line[];

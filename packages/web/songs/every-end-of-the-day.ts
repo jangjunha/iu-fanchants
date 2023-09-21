@@ -4,6 +4,7 @@ const everyEndOfTheDay: Song = {
   slug: "every-end-of-the-day",
   name: "하루 끝",
   videoId: "gJtNx3P02Z4",
+  end: 217,
   difficulty: 1,
   lines: [
     {

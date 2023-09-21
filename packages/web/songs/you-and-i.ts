@@ -3,6 +3,7 @@ import { Song } from "iu-fanchants-common/types/song";
 const youAndI: Song = {
   slug: "you-and-i",
   videoId: "NJR8Inf77Ac",
+  end: 230,
   name: "너랑 나",
   difficulty: 1,
   lines: [
