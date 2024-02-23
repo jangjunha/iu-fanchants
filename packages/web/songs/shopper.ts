@@ -678,6 +678,7 @@ const shopper: Song = {
   videoId: "kHW-UVXOcLU",
   skipStart: 50,
   end: 265,
+  isNew: true,
   lines: lines.map(trim),
 };
 export default shopper;

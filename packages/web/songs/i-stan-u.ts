@@ -6,6 +6,7 @@ const iStanU: Song = {
   difficulty: 3,
   videoId: "_ZfT3M6ZKEM",
   end: 192,
+  isNew: true,
   lines: [
     { time: 0, lyrics: "사소한 틈새의 one milli", fanchants: [] },
     { time: 0, lyrics: "그게 널 다르게 만들지", fanchants: [] },

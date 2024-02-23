@@ -7,6 +7,7 @@ const holssi: Song = {
   videoId: "mFbILexYSQg",
   skipStart: 14,
   end: 204,
+  isNew: true,
   lines: [
     { time: 0, lyrics: "내가 누울 자린 아마도", fanchants: [] },
     {

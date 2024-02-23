@@ -50,6 +50,51 @@ export default function Home() {
         </p>
       </section>
       <section className="px-4">
+        <div>
+          <header className="text-neutral-300 mb-2">
+            <h3 className="font-bold">✨ NEW</h3>
+          </header>
+          <ul
+            role="list"
+            className="bg-white text-black border mb-8 divide-y rounded-md shadow shadow-neutral-600"
+          >
+            {songs
+              .filter(({ isNew }) => isNew)
+              .map((song) => (
+                <li key={song.slug} className="flex hover:bg-violet-200">
+                  <Link
+                    href={`./s/${song.slug}/`}
+                    className="flex-1 flex items-center justify-between gap-x-6 px-4 py-4"
+                  >
+                    <div className="flex items-center min-w-0 gap-x-4">
+                      <img
+                        className="h-12 w-12 flex-none rounded-full bg-gray-50 object-cover border"
+                        src={
+                          song.thumbnail ??
+                          `https://i3.ytimg.com/vi/${song.videoId}/maxresdefault.jpg`
+                        }
+                      />
+                      <div className="min-w-0 flex-auto">
+                        <p className="font-semibold leading-6">{song.name}</p>
+                      </div>
+                    </div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      className="w-5 h-5 text-gray-300"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </Link>
+                </li>
+              ))}
+          </ul>
+        </div>
         {songs
           .reduce<Song[][]>((res, song) => {
             res[song.difficulty] = res[song.difficulty] ?? [];

@@ -6,6 +6,7 @@ export interface Song {
   end: number;
   name: string;
   difficulty: number;
+  isNew?: boolean;
   lines: Line[];
 }
 
