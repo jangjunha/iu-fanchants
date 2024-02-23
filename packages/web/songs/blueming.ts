@@ -148,7 +148,7 @@ const blueming: Song = {
       lyrics: "I Feel bloom",
       fanchants: [
         ["I Feel ", "I Feel ", null],
-        ["블룸", "블룸", 64.9],
+        ["블룸", "블룸", 65.06305731035691],
       ],
     },
     {
@@ -156,7 +156,7 @@ const blueming: Song = {
       lyrics: "I Feel bloom",
       fanchants: [
         ["I Feel ", "I Feel ", null],
-        ["블룸", "블룸", 69.4],
+        ["블룸", "블룸", 69.6],
       ],
     },
     {
@@ -288,7 +288,7 @@ const blueming: Song = {
       lyrics: "I Feel blue",
       fanchants: [
         ["I Feel ", "I Feel ", null],
-        ["블루", "블루", 141.5],
+        ["블루", "블루", 142.04242124243538],
       ],
     },
     {
