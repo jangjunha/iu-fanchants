@@ -30,29 +30,62 @@ const scoreToJudgement = (score: number): string => {
 };
 
 const ScoreResult = ({ percent }: { percent: number }): React.ReactElement => {
+  const id = "result-grade";
   const cls = "text-8xl";
   if (percent >= 0.99) {
-    return <div className={classNames(cls, "text-uaena")}>SSS</div>;
+    return (
+      <div id={id} className={classNames(cls, "text-uaena")}>
+        SSS
+      </div>
+    );
   }
   if (percent >= 0.975) {
-    return <div className={classNames(cls, "text-violet-400")}>SS</div>;
+    return (
+      <div id={id} className={classNames(cls, "text-violet-400")}>
+        SS
+      </div>
+    );
   }
   if (percent >= 0.95) {
-    return <div className={classNames(cls, "text-teal-400")}>S</div>;
+    return (
+      <div id={id} className={classNames(cls, "text-teal-400")}>
+        S
+      </div>
+    );
   }
   if (percent >= 0.9) {
-    return <div className={classNames(cls, "text-lime-400")}>A</div>;
+    return (
+      <div id={id} className={classNames(cls, "text-lime-400")}>
+        A
+      </div>
+    );
   }
   if (percent >= 0.8) {
-    return <div className={classNames(cls, "text-yellow-400")}>B</div>;
+    return (
+      <div id={id} className={classNames(cls, "text-yellow-400")}>
+        B
+      </div>
+    );
   }
   if (percent >= 0.75) {
-    return <div className={classNames(cls, "text-orange-400")}>C</div>;
+    return (
+      <div id={id} className={classNames(cls, "text-orange-400")}>
+        C
+      </div>
+    );
   }
   if (percent >= 0.5) {
-    return <div className={classNames(cls, "text-rose-400")}>D</div>;
+    return (
+      <div id={id} className={classNames(cls, "text-rose-400")}>
+        D
+      </div>
+    );
   }
-  return <div className={classNames(cls, "text-neutral-400")}>F</div>;
+  return (
+    <div id={id} className={classNames(cls, "text-neutral-400")}>
+      F
+    </div>
+  );
 };
 
 const Result = ({
@@ -74,9 +107,12 @@ const Result = ({
         <div className="flex flex-col items-center">
           <ScoreResult percent={total / max} />
           <div className="text-2xl text-neutral-400">
-            {((total / max) * 100).toFixed(1)} %
+            <span id="result-percent">{((total / max) * 100).toFixed(1)}</span>{" "}
+            %
           </div>
-          <div className="text-2xl">{total}</div>
+          <div id="result-total" className="text-2xl">
+            {total}
+          </div>
         </div>
         <ul className="text-right mt-8">
           {[
@@ -87,7 +123,7 @@ const Result = ({
             return (
               <li key={name} className="flex justify-end">
                 <span>{name}</span>
-                <span className="w-12 text-right">
+                <span id={`result-detail-${name}`} className="w-12 text-right">
                   {scores.filter(({ score: s }) => s === score).length}
                 </span>
               </li>
