@@ -19,9 +19,8 @@ const Fanchant_ = ({
         "text-uaena": past,
         "text-transparent": t == null,
       })}
-    >
-      {char}
-    </span>
+      dangerouslySetInnerHTML={{ __html: char }}
+    />
   );
 };
 

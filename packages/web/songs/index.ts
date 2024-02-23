@@ -1,5 +1,6 @@
 import shopper from "./shopper";
 import holssi from "./holssi";
+import iStanU from "./i-stan-u";
 import bbibbi from "./bbibbi";
 import blueming from "./blueming";
 import dlwlrma from "./dlwlrma";
@@ -15,6 +16,7 @@ import boo from "./boo";
 export default [
   shopper,
   holssi,
+  iStanU,
   lilac,
   blueming,
   bbibbi,
