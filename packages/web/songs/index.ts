@@ -1,3 +1,4 @@
+import shopper from "./shopper";
 import bbibbi from "./bbibbi";
 import blueming from "./blueming";
 import dlwlrma from "./dlwlrma";
@@ -11,6 +12,7 @@ import loveAttack from "./love-attack";
 import boo from "./boo";
 
 export default [
+  shopper,
   lilac,
   blueming,
   bbibbi,
