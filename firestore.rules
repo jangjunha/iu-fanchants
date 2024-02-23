@@ -1,0 +1,36 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /songs/{song} {
+      match /scores/{score} {
+        allow list: if
+          request.query.orderBy.date == 'ASC'
+          && request.query.orderBy.score == 'DESC'
+          && request.query.orderBy.createdAt == 'ASC'
+          && request.query.limit is int
+          && request.query.limit <= 5;
+        allow get: if true;
+
+        allow create: if
+          request.resource.data.keys().hasAll(['user', 'name', 'score', 'date', 'createdAt'])
+          && request.auth != null
+          && request.resource.data.user == request.auth.uid
+          && request.resource.data.name is string
+          && request.resource.data.name.size() <= 10
+          && request.resource.data.score is number
+          && request.resource.data.date is timestamp
+          && request.resource.data.date >= request.time - duration.time(24, 5, 0, 0)
+          && request.resource.data.date <= request.time + duration.time(0, 5, 0, 0)
+          && request.resource.data.createdAt == request.time;
+
+        allow update: if
+          (request.resource.data.diff(resource.data).affectedKeys().hasOnly(['name']))
+          && request.auth != null
+          && resource.data.user == request.auth.uid
+          && request.resource.data.name is string
+          && request.resource.data.name.size() <= 10;
+      }
+    }
+  }
+}

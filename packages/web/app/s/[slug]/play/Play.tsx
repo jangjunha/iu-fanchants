@@ -1,14 +1,24 @@
 "use client";
 
 import classNames from "classnames";
+import { signInAnonymously } from "firebase/auth";
+import {
+  Timestamp,
+  addDoc,
+  collection,
+  serverTimestamp,
+} from "firebase/firestore";
 import { Song } from "iu-fanchants-common/types/song";
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 import Keypad from "@/components/Keypad";
+import { auth, db } from "@/utils/firebase";
 import { convertCharToKeypad } from "@/utils/key";
 
 import Video from "../Video";
+import { DateTime } from "luxon";
+import Scoreboard from "../Scoreboard";
 
 const JUDGEMENTS = [
   { name: "PERFECT", score: 100, threshold: 0.18 },
@@ -89,10 +99,16 @@ const ScoreResult = ({ percent }: { percent: number }): React.ReactElement => {
 };
 
 const Result = ({
+  slug,
+  time,
+  scoreID,
   scores,
   total,
   max,
 }: {
+  slug: string;
+  time: DateTime;
+  scoreID: string | undefined;
   scores: Score[];
   total: number;
   max: number;
@@ -131,6 +147,9 @@ const Result = ({
           })}
         </ul>
       </section>
+      <div className="mt-16 w-full">
+        <Scoreboard slug={slug} time={time} scoreID={scoreID} />
+      </div>
       <section className="flex flex-col w-full mt-16 gap-4">
         <button
           onClick={handleRetry}
@@ -173,7 +192,12 @@ type Score = { key: string; time: number; index?: number; score: number };
 const Play = ({ song }: { song: Song }): React.ReactElement => {
   const [current, setCurrent] = useState(0);
   const [scores, setScores] = useState<Score[]>([]);
-  const [isEnd, setEnd] = useState(false);
+  const [endTime, setEnd] = useState<DateTime>();
+  const [scoreID, setScoreID] = useState<string>();
+
+  useEffect(() => {
+    signInAnonymously(auth);
+  }, []);
 
   const timeline: [string, number][] = useMemo(
     () =>
@@ -220,9 +244,21 @@ const Play = ({ song }: { song: Song }): React.ReactElement => {
     [timeline, scores, current]
   );
 
-  const handleEnd = useCallback(() => {
-    setEnd(true);
-  }, []);
+  const totalScore = scores.reduce((acc, s) => acc + s.score, 0);
+  const handleEnd = useCallback(async () => {
+    const now = DateTime.now().setZone("Asia/Seoul");
+    setEnd(now);
+    if (auth.currentUser != null) {
+      const ref = await addDoc(collection(db, "songs", song.slug, "scores"), {
+        user: auth.currentUser.uid,
+        name: "유애나",
+        score: totalScore,
+        date: Timestamp.fromMillis(now.startOf("day").toMillis()),
+        createdAt: serverTimestamp(),
+      });
+      setScoreID(ref.id);
+    }
+  }, [song, totalScore]);
 
   const keypadColor = (keypad: string): string | undefined => {
     for (const { key: k, time: t, score } of scores) {
@@ -237,7 +273,6 @@ const Play = ({ song }: { song: Song }): React.ReactElement => {
     () => timeline.length * JUDGEMENTS[0].score,
     [timeline]
   );
-  const totalScore = scores.reduce((acc, s) => acc + s.score, 0);
   const judgement = scores
     .filter((s) => current < s.time + JUDGEMENT_DISPLAY_TIME)
     .map(({ score, time }): [string, number, number] => [
@@ -245,9 +280,16 @@ const Play = ({ song }: { song: Song }): React.ReactElement => {
       score,
       time,
     ])[0];
-  return isEnd ? (
+  return endTime != null ? (
     <div id="result" className="flex flex-col items-center py-16">
-      <Result scores={scores} total={totalScore} max={maxScore} />
+      <Result
+        slug={song.slug}
+        time={endTime}
+        scoreID={scoreID}
+        scores={scores}
+        total={totalScore}
+        max={maxScore}
+      />
     </div>
   ) : (
     <div className="flex-1 flex flex-col-reverse justify-between py-4">
@@ -263,7 +305,7 @@ const Play = ({ song }: { song: Song }): React.ReactElement => {
           <div className="flex flex-col gap-y-2 min-h-[10.5rem] text-center">
             <button
               className="bg-neutral-100 hover:bg-neutral-200 border border-neutral-200 text-black rounded-md py-2"
-              onClick={() => setEnd(true)}
+              onClick={handleEnd}
             >
               결과 보기
             </button>

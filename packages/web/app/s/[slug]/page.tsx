@@ -2,6 +2,8 @@ import type { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
 
 import songs from "@/songs";
+import Scoreboard from "./Scoreboard";
+import { DateTime } from "luxon";
 
 type Props = {
   params: { slug: string };
@@ -62,6 +64,9 @@ const SongPage = ({ params: { slug } }: Props): React.ReactElement => {
           플레이
         </Link>
       </section>
+      <div className="mt-16">
+        <Scoreboard slug={slug} />
+      </div>
     </>
   );
 };
