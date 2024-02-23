@@ -21,7 +21,7 @@ const View = ({ song }: { song: Song }): React.ReactElement => {
           if (t == null) return [];
           return [[convertCharToKeypad(k), t]];
         }),
-    []
+    [song]
   );
 
   const keypadColor = (keypad: string): string | undefined =>

@@ -145,7 +145,7 @@ const Play = ({ song }: { song: Song }): React.ReactElement => {
         .flatMap((l) => l.fanchants)
         .filter(([, , t]) => t != null)
         .map(([, k, t]) => [convertCharToKeypad(k), t as number]),
-    []
+    [song]
   );
 
   useEffect(() => {
