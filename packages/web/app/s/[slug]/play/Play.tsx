@@ -25,6 +25,7 @@ const JUDGEMENTS = [
   { name: "GREAT", score: 70, threshold: 0.25 },
   { name: "GOOD", score: 30, threshold: 0.6 },
 ];
+const MAX_THRESHOLD = JUDGEMENTS.slice(-1)[0].threshold;
 const FALSE_SCORE = -30;
 const MISS_SCORE = 0;
 const DISPLAY_TIME = 0.1;
@@ -209,10 +210,9 @@ const Play = ({ song }: { song: Song }): React.ReactElement => {
   );
 
   useEffect(() => {
-    const max_threshold = JUDGEMENTS.slice(-1)[0].threshold;
     const time = current;
     for (const [index, [k, t]] of timeline.entries()) {
-      if (!scores.some((s) => s.index === index) && time >= t + max_threshold) {
+      if (!scores.some((s) => s.index === index) && time >= t + MAX_THRESHOLD) {
         setScores((p) => [{ key: k, time, index, score: MISS_SCORE }, ...p]);
       }
     }
