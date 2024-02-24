@@ -26,7 +26,7 @@ const AboutPage = (): React.ReactElement => (
         목적으로만 사용하며 광고 등의 목적으로 사용하지 않습니다.
       </p>
       <p>
-        <Link href="/licenses.txt">오픈 소스 라이센스 정보 (링크)</Link>
+        <Link href="/licenses.txt" target="_blank">오픈 소스 라이센스 정보 (링크)</Link>
       </p>
       <p>
         폰트
